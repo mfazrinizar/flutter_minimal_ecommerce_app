@@ -8,8 +8,8 @@ class ThemeProvider extends ChangeNotifier {
   bool get isDark => _isDark;
   ThemeMode get mode => _isDark ? ThemeMode.dark : ThemeMode.light;
 
-  ThemeProvider() {
-    _loadFromPrefs();
+  ThemeProvider({bool loadFromPrefs = true}) {
+    if (loadFromPrefs) _loadFromPrefs();
   }
 
   Future<void> _loadFromPrefs() async {
